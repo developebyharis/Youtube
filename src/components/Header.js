@@ -6,7 +6,6 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { toggleMenu, toggleSideBar } from "../utils/appSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { Icon } from '@iconify/react';
 import { useLocation } from "react-router-dom";
 import { useContext, useEffect, useState, useRef } from "react";
 import useDebounce from "../utils/useDebounce";
@@ -18,6 +17,8 @@ import ThemeContext from "../utils/ThemeContext";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { useVoice } from "../utils/useVoice";
 import { changeCategory } from "../utils/categorySlice";
+import light_logo from "../assests/logo_light_theme.webp";
+import dark_logo from "../assests/logo_dark_theme.webp";
 
 import mic_open from "../assests/mic_open.gif";
 
@@ -122,7 +123,7 @@ const Header = () => {
         <div className="logo cursor-pointer flex items-center max-md:hidden">
           <a href="/">
             <img
-              src={theme === "light" ? <Icon icon="iconamoon:mode-light-light" /> : <Icon icon="tdesign:mode-dark" />}
+              src={theme === "light" ? light_logo : dark_logo}
               alt="logo"
               title="logo"
               className="w-52 pl-4 lg:w-36"
@@ -133,14 +134,14 @@ const Header = () => {
       <div className="center w-3/5 2xl:w-2/5 max-sm:w-4/5 max-sm:ml-2 max-sm:mr-4 flex items-center ml-16 relative ">
         <div
           ref={searchRef}
-          className="searchbar  dark:bg-zinc-800 flex-1 flex items-center ml-10 rounded-3xl border-2 dark:border dark:border-gray-500"
+          className="searchbar dark:bg-zinc-800 flex-1 flex items-center ml-10 rounded-3xl border-2 dark:border dark:border-gray-500"
         >
           <input
             ref={inputRef}
             type="text"
             placeholder="Search"
             value={searchQuery}
-            className=" rounded-l-3xl p-2 pl-8 focus:outline-none w-full dark:bg-zinc-800"
+            className=" rounded-l-3xl p-2 pl-8 focus:outline-none w-full dark:bg-zinc-800 "
             onChange={(e) => {
               setSearchQuery(e.target.value);
               setLoading(true);

@@ -1,6 +1,5 @@
 import moment from "moment";
 import { BASE_URL } from "./../utils/constants";
-import { GiAerialSignal } from "react-icons/gi";
 import { Icon } from '@iconify/react';
 import { decode } from "html-entities";
 import { useQuery } from "@tanstack/react-query";

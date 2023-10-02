@@ -4,10 +4,9 @@ import { MdKeyboardVoice } from "react-icons/md";
 import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
-import logo_light_theme from "../assests/logo_light_theme.webp";
-import logo_dark_theme from "../assests/logo_dark_theme.webp";
 import { toggleMenu, toggleSideBar } from "../utils/appSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Icon } from '@iconify/react';
 import { useLocation } from "react-router-dom";
 import { useContext, useEffect, useState, useRef } from "react";
 import useDebounce from "../utils/useDebounce";
@@ -123,7 +122,7 @@ const Header = () => {
         <div className="logo cursor-pointer flex items-center max-md:hidden">
           <a href="/">
             <img
-              src={theme === "light" ? logo_light_theme : logo_dark_theme}
+              src={theme === "light" ? <Icon icon="iconamoon:mode-light-light" /> : <Icon icon="tdesign:mode-dark" />}
               alt="logo"
               title="logo"
               className="w-52 pl-4 lg:w-36"
@@ -192,22 +191,35 @@ const Header = () => {
       </div>
       <div className="right-menu flex  items-center sm:ml-4 lg:ml-16 gap-5 p-2">
         <div className="toggle-dark-mode-switch  flex items-center gap-2">
-          <label
-            htmlFor="check"
-            className="bg-gray-100 dark:bg-zinc-700 relative top-0 w-20 h-8 rounded-full cursor-pointer flex items-center justify-around dark:text-black"
-          >
-            {" "}
-            <BsFillSunFill className="text-amber-400" size="1.2rem" />
-            <BsFillMoonFill className="text-zinc-700" size="1.2rem" />
-            <input
-              type="checkbox"
-              id="check"
-              className="sr-only peer"
-              checked={theme === "dark"}
-              onChange={handleThemeChange}
-            />
-            <span className="w-2/5 h-4/5 bg-amber-400 absolute rounded-full left-1 top-1 peer-checked:bg-white peer-checked:left-11 transition-all duration-500 "></span>
-          </label>
+        <label
+  htmlFor="check"
+  className="bg-gray-100 dark:bg-zinc-700 relative p-3 rounded-full cursor-pointer flex"
+>
+  {theme === "light" ? (
+    <>
+      <BsFillSunFill className="text-black" size="1.2rem" />
+      <input
+        type="checkbox"
+        id="check"
+        className="sr-only peer"
+        checked={theme === "dark"}
+        onChange={handleThemeChange}
+      />
+    </>
+  ) : (
+    <>
+      <BsFillMoonFill className="text-white" size="1.2rem" />
+      <input
+        type="checkbox"
+        id="check"
+        className="sr-only peer"
+        checked={theme === "dark"}
+        onChange={handleThemeChange}
+      />
+    </>
+  )}
+</label>
+
         </div>
 
         <div className="p-2 max-sm:hidden  hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">

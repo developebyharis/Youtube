@@ -67,14 +67,15 @@ const WatchPage = () => {
     <div className="">
       <SideBarExpanded />
       <div
-        className={`min-h-[calc(100vh-4.62rem)] dark:bg-zinc-900 dark:text-white grid grid-cols-12 md:gap-x-8 px-4 md:px-12 2xl:px-24 gap-y-4 pt-4 ${
+        className={`min-h-[calc(100vh-4.62rem)] dark:bg-zinc-900 dark:text-white px-2 grid grid-cols-12 md:gap-x-8  md:px-12 2xl:px-24 gap-y-4 pt-0 ${
           isSideBarOpen && "h-[calc(100vh-4.62rem)] overflow-x-hidden"
         }`}
       >
         <div className="col1 col-span-12 lg:col-span-8  ">
           <div className="video mb-4 ">
-            <div className="player mb-4 h-[32vh] md:h-[50vh] lg:h-[50vh] 2xl:h-[70vh]">
+            <div className="player mb-4 h-[29vh] md:h-[50vh]  lg:h-[70vh] -mx-2 2xl:h-[70vh]">
               <iframe
+              className="lg:rounded-xl"
                 width="100%"
                 height="100%"
                 src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}

@@ -76,7 +76,14 @@ const VideoMetaData = ({ videoDetails, channelId }) => {
               </div>
             </div>
             <div className="subs_button ml-2">
-              <button className="bg-black dark:bg-zinc-700  text-sm text-white rounded-2xl px-4 py-2 ">
+              <button
+                className="bg-black dark:bg-white dark:text-black  text-sm text-white rounded-full  px-4 py-2 "
+                style={{
+                  "@media (max-width: 767px)": {
+                    marginLeft: "88px", // Reset marginLeft for screens with a width of 640px or less (adjust this breakpoint as needed)
+                  },
+                }}
+              >
                 {" "}
                 Subscribe
               </button>
@@ -87,7 +94,10 @@ const VideoMetaData = ({ videoDetails, channelId }) => {
             <div className="button-wrapper flex bg-gray-200 dark:bg-zinc-700 rounded-2xl p-2">
               <button className="like   flex gap-1 items-center pr-2">
                 <div className="like_icon">
-                  <BiLike size="1.2rem" className="text-gray-600 dark:text-white " />
+                  <BiLike
+                    size="1.2rem"
+                    className="text-gray-600 dark:text-white "
+                  />
                 </div>
                 <div className="like_count ">
                   {Intl.NumberFormat("en", { notation: "compact" }).format(
@@ -97,7 +107,10 @@ const VideoMetaData = ({ videoDetails, channelId }) => {
               </button>
               <button className="cursor-pointer">
                 <div className="border-l-2 border-black/20 dark:border-white/50 pl-2">
-                  <BiDislike size="1.2rem" className="text-gray-600 dark:text-white" />
+                  <BiDislike
+                    size="1.2rem"
+                    className="text-gray-600 dark:text-white"
+                  />
                 </div>
               </button>
             </div>

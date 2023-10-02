@@ -13,8 +13,9 @@ import { YOUTUBE_SEARCH_SUGGESTION_API_URL } from "../utils/constants";
 import SuggestionDropDown from "./SuggestionDropDown";
 import useClickOutside from "./../utils/useClickOutside";
 import { cacheResults } from "../utils/searchSlice";
+import { Icon } from '@iconify/react';
 import ThemeContext from "../utils/ThemeContext";
-import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+// import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { useVoice } from "../utils/useVoice";
 import { changeCategory } from "../utils/categorySlice";
 import light_logo from "../assests/logo_light_theme.webp";
@@ -198,7 +199,7 @@ const Header = () => {
 >
   {theme === "light" ? (
     <>
-      <BsFillSunFill className="text-black" size="1.2rem" />
+    <Icon icon="material-symbols:light-mode-outline" width="20" className="text-black" size="1.2rem" />
       <input
         type="checkbox"
         id="check"
@@ -209,7 +210,7 @@ const Header = () => {
     </>
   ) : (
     <>
-      <BsFillMoonFill className="text-white" size="1.2rem" />
+    <Icon icon="material-symbols:dark-mode" width="20" className="text-white" />
       <input
         type="checkbox"
         id="check"

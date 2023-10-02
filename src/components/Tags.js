@@ -1,5 +1,4 @@
 import { tags } from "../utils/constants";
-// import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { useEffect, useState } from "react";
 import { handleScroll } from "../utils/helper";
 import { useSelector, useDispatch } from "react-redux";

@@ -1,6 +1,7 @@
 import moment from "moment";
 import { BASE_URL } from "./../utils/constants";
 import { GiAerialSignal } from "react-icons/gi";
+import { Icon } from '@iconify/react';
 import { decode } from "html-entities";
 import { useQuery } from "@tanstack/react-query";
 
@@ -98,10 +99,10 @@ const VideoCard = ({ video }) => {
           className="rounded-xl w-full"
           alt="video thumbnail"
         />
-        <div className="absolute bottom-1 right-1 bg-black/80 px-2 py-1 rounded-md text-xs text-white">
+        <div className="absolute bottom-1 right-1 px-2 py-1 rounded-md text-xs text-white">
           {_duration === "00:00" ? (
-            <div className="bg-red-600 px-2 rounded font-bold flex gap-1 items-center">
-              <GiAerialSignal size="1.1rem" />
+            <div className="bg-red-600 px-1 py-0.5 rounded font-bold flex gap-1 items-center">
+            <Icon icon="fluent:live-20-regular" width="15" />
               <span>LIVE</span>
             </div>
           ) : (
@@ -122,15 +123,9 @@ const VideoCard = ({ video }) => {
             <div className="video-title font-semibold text-base leading-snug ">
               {newTitle.length > 60 ? newTitle.slice(0, 60) + "..." : newTitle}
             </div>
-            <div className="channel-name text-xs pt-2">{channelTitle}</div>
-            <div className="text-xs pt-1">
-              <span>
-                {Intl.NumberFormat("en", { notation: "compact" }).format(views)}{" "}
+            <div className="channel-name text-xs pt-2">{channelTitle} <span> • </span> {Intl.NumberFormat("en", { notation: "compact" }).format(views)}{" "}
                 views
-              </span>
-              <span> • </span>
-              <span>{moment(publishedAt).fromNow()}</span>
-            </div>
+                <span> • </span> {moment(publishedAt).fromNow()}</div>
           </div>
         </div>
       </div>

@@ -108,7 +108,7 @@ const VideoContainer = () => {
     <>
       <div
         className=" grid justify-center justify-items-center grid-cols-[repeat(auto-fill,minmax(310px,_1fr))] max-xl:grid-cols-[repeat(auto-fill,minmax(250px,_1fr))] gap-[1rem_1rem] 
-    pt-6 px-2 overflow-x-hidden"
+    pt-3 px-2 overflow-x-hidden"
       >
         {/* {console.log(data)} */}
         {isSuccess &&

@@ -1,6 +1,6 @@
 import moment from "moment";
 import { BASE_URL } from "./../utils/constants";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 import { decode } from "html-entities";
 import { useQuery } from "@tanstack/react-query";
 
@@ -44,7 +44,7 @@ const VideoCard = ({ video }) => {
     // setViews(data?.items[0].statistics.viewCount);
   };
 
-  const { data: videoDetails} = useQuery({
+  const { data: videoDetails } = useQuery({
     queryKey: ["videoDetails", _videoId],
     queryFn: () => getVideoViewsAndDuration(_videoId),
     refetchOnWindowFocus: false,
@@ -61,14 +61,13 @@ const VideoCard = ({ video }) => {
   if (contentDetails && statistics) {
     duration = contentDetails?.duration;
     views = statistics.viewCount;
-  } else  {
+  } else {
     duration = videoDetails?.contentDetails?.duration;
     views = videoDetails?.statistics?.viewCount;
   }
 
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
-
 
   const get_channel_icon = async () => {
     const response = await fetch(
@@ -98,10 +97,14 @@ const VideoCard = ({ video }) => {
           className="rounded-xl w-full"
           alt="video thumbnail"
         />
-        <div className="absolute bottom-1 right-1 px-2 py-1 rounded-md text-xs text-white">
+        <div
+          className={`absolute bottom-1 right-1 px-2 py-1 rounded-md text-xs text-white ${
+            _duration === "00:00" ? "bg-red-600" : "bg-black/60"
+          }`}
+        >
           {_duration === "00:00" ? (
             <div className="bg-red-600 px-1 py-0.5 rounded font-bold flex gap-1 items-center">
-            <Icon icon="fluent:live-20-regular" width="15" />
+              <Icon icon="fluent:live-20-regular" width="15" />
               <span>LIVE</span>
             </div>
           ) : (
@@ -114,17 +117,21 @@ const VideoCard = ({ video }) => {
           <div className="channel-logo flex flex-shrink-0 ">
             <img
               src={channelIcon2}
-              className="rounded-[50%]  w-10 h-10  object-cover"
+              className="rounded-[50%] -mt-1  w-10 h-10  object-cover"
               alt="channel logo"
             />
           </div>
+
           <div className="video-detail">
-            <div className="video-title font-semibold text-base leading-snug ">
+            <div className="video-title -mt-1.5 font-semibold text-sm leading-snug ">
               {newTitle.length > 60 ? newTitle.slice(0, 60) + "..." : newTitle}
             </div>
-            <div className="channel-name text-xs pt-2">{channelTitle} <span> • </span> {Intl.NumberFormat("en", { notation: "compact" }).format(views)}{" "}
-                views
-                <span> • </span> {moment(publishedAt).fromNow()}</div>
+            <div className="channel-name text-xs pt-0.5">
+              {channelTitle} <span> • </span>{" "}
+              {Intl.NumberFormat("en", { notation: "compact" }).format(views)}{" "}
+              views
+              <span> • </span> {moment(publishedAt).fromNow()}
+            </div>
           </div>
         </div>
       </div>

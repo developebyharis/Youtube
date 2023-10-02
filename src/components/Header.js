@@ -104,7 +104,7 @@ const Header = () => {
   }, [debounceSearchText]);
 
   return (
-    <div className="px-4 py-2 flex justify-between items-center shadow-sm  w-full sticky top-0 z-10 bg-white h-[4.62rem] dark:bg-zinc-900 dark:text-white transition-all duration-500">
+    <div className="px-4 py-2 flex justify-between items-center  w-full sticky top-0 z-10 bg-white h-[4.62rem] dark:bg-zinc-900 dark:text-white transition-all duration-500">
       <div className="left-items flex items-center">
         <button
           className=" p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700"
@@ -134,7 +134,7 @@ const Header = () => {
       <div className="center w-3/5 2xl:w-2/5 max-sm:w-4/5 max-sm:ml-2 max-sm:mr-4 flex items-center ml-16 relative ">
         <div
           ref={searchRef}
-          className="searchbar dark:bg-zinc-800 flex-1 flex items-center ml-10 rounded-3xl border-2 dark:border dark:border-gray-500"
+          className="searchbar dark:bg-zinc-800 flex-1 flex items-center ml-3 rounded-3xl border-2 dark:border dark:border-gray-500"
         >
           <input
             ref={inputRef}

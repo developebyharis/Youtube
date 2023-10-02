@@ -28,13 +28,13 @@ const Tags = () => {
           ? "lg:w-[calc(100vw-19rem)] w-[calc(100vw-8rem)]"
           : "lg:w-[calc(100vw-8rem)] w-[calc(100vw-3rem)]"
       } min-w-[250px]
-      pt-2`}
+      pt-1`}
     >
       <div className="tags-wrapper flex w-full overflow-x-hidden overflow-y-hidden ">
         {tags.map((tag, index) => {
           return (
             <button
-              className={`tag  px-3 w-fit py-2 mx-2 cursor-pointer rounded-lg ${
+              className={`tag px-3 w-fit py-2 mx-2 cursor-pointer rounded-lg ${
                 active === tag
                   ? "bg-slate-900 text-white dark:bg-white dark:text-zinc-900"
                   : " bg-gray-100  dark:text-white dark:bg-zinc-800"

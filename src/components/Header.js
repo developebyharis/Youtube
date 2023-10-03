@@ -1,7 +1,7 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TfiSearch } from "react-icons/tfi";
 import { MdKeyboardVoice } from "react-icons/md";
-import { RiVideoAddLine } from "react-icons/ri";
+// import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { toggleMenu, toggleSideBar } from "../utils/appSlice";
@@ -104,6 +104,23 @@ const Header = () => {
     // eslint-disable-next-line
   }, [debounceSearchText]);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function to toggle the dropdown
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Function to close the dropdown when clicking outside
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+
+  // Prevent the dropdown from closing when clicking inside it
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className="px-4 py-2 flex justify-between items-center  w-full sticky top-0 z-10 bg-white h-[4.62rem] dark:bg-zinc-900 dark:text-white transition-all duration-500">
       <div className="left-items flex items-center">
@@ -192,50 +209,60 @@ const Header = () => {
         )}
       </div>
       <div className="right-menu flex  items-center sm:ml-4 lg:ml-16 max-sm:gap-0 gap-5 p-2">
-        <div className="toggle-dark-mode-switch  flex items-center gap-2 max-sm:hidden">
-          <label
-            htmlFor="check"
-            className="bg-gray-100 dark:bg-zinc-700 relative p-3 rounded-full cursor-pointer flex"
-          >
-            {theme === "light" ? (
-              <>
-                <Icon
-                  icon="material-symbols:light-mode-outline"
-                  width="20"
-                  className="text-black"
-                  size="1.2rem"
-                />
-                <input
-                  type="checkbox"
-                  id="check"
-                  className="sr-only peer"
-                  checked={theme === "dark"}
-                  onChange={handleThemeChange}
-                />
-              </>
-            ) : (
-              <>
-                <Icon
-                  icon="material-symbols:dark-mode"
-                  width="20"
-                  className="text-white"
-                />
-                <input
-                  type="checkbox"
-                  id="check"
-                  className="sr-only peer"
-                  checked={theme === "dark"}
-                  onChange={handleThemeChange}
-                />
-              </>
-            )}
-          </label>
-        </div>
         <div className="p-2  hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">
           <IoMdNotificationsOutline size="1.5rem" />
         </div>
-        <div className="p-2 max-sm:-mr-4 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">
-          <FaUserCircle size="1.5rem" />
+        <div className="relative" onClick={toggleDropdown}>
+          {/* User icon */}
+          <div className="p-2 max-sm:-mr-4  rounded-full cursor-pointer">
+            <FaUserCircle size="1.5rem" />
+          </div>
+
+          {/* Dropdown content */}
+          {isOpen && (
+            <div
+              className="absolute -ml-72 -mt-12 w-72 bg-white dark:bg-zinc-800 shadow-md rounded-lg z-10"
+              onClick={stopPropagation}
+            >
+              <div className="py-2">
+                {/* Dropdown items */}
+                <a
+                  href="/profile"
+                  className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                >
+                  Profile
+                </a>
+                {/* Add more dropdown items as needed */}
+              </div>
+              <div className="border-t border-gray-200 dark:border-gray-400"></div>
+              <div className="toggle-dark-mode-switch px-3 mt-4 hover:bg-gray-100 dark:hover:bg-zinc-700 flex items-center gap-2 max-sm:hidden">
+              <Icon icon="line-md:light-dark-loop" width="25" /><button
+                  onClick={handleThemeChange}
+                  className={` relative p-3 cursor-pointer flex ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
+                >Appearance:
+                  {theme === "light" ? "Light" : "Dark"}
+                </button>
+              </div>
+
+              <div className="py-2">
+                {/* Sign In button */}
+                <button className="block w-full text-left px-4 py-2 text-red-500 hover:text-red-600">
+                  Sign In
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Close the dropdown when clicking outside */}
+          {isOpen && (
+            <div
+              className="fixed inset-0"
+              onClick={closeDropdown}
+              style={{ zIndex: -1 }}
+            ></div>
+          )}
         </div>
       </div>
     </div>

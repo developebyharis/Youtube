@@ -51,8 +51,8 @@ const Comments = ({ videoId, commentCount }) => {
   ) : (
     <div className="comment">
       <div className="flex gap-8 items-center mb-4 ">
-        <div className="comment-count font-medium ">
-          {parseInt(commentCount).toLocaleString()} Comments
+        <div className="comment-count font-medium rounded-full p-2 cursor-pointer hover:bg-gray-300 dark:hover:bg-zinc-600" onClick={toggleComments}>
+          {parseInt(commentCount).toLocaleString()} Comments 
         </div>
         <div className="sort flex gap-2 cursor-pointer items-center max-md:hidden">
           <MdOutlineSort size="1.5rem" />
@@ -64,19 +64,11 @@ const Comments = ({ videoId, commentCount }) => {
           <FaUserCircle size="2.5rem" />
         </div>
         <div className="comment_input w-full ">
-          <div className="flex justify-between items-center">
             <input
               className="border-none bg-gray-300 dark:bg-zinc-600 px-3 rounded-full w-full h-8 py-2 dark:focus:border-white focus:border-black focus:border-b-2"
               type="text"
               placeholder="Add a comment..."
             />
-            <Icon
-              className="dark:bg-zinc-600 ml-2 dark:text-gray-50 bg-gray-300 rounded-full p-2"
-              width={32}
-              icon="teenyicons:down-outline"
-              onClick={toggleComments}
-            />
-          </div>
 
           <div className="flex justify-end gap-4 pt-2 font-semibold">
             <button className="hover:bg-white dark:hover:bg-zinc-700 px-4 py-2 rounded-full">

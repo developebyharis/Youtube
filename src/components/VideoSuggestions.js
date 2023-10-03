@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
-import Tags from "./Tags";
 import Shimmer from "./Shimmer";
 import SuggestedVideoCard from "./SuggestedVideoCard";
 
@@ -54,7 +53,6 @@ const VideoSuggestions = ({ videoId, videoTitle }) => {
   ) : (
     <div>
     <div className="pb-6 pt-2 max-md:hidden">
-    <Tags />
     </div>
       {suggestedVideos.length > 0 &&
         suggestedVideos.map((suggestedVideo) => {

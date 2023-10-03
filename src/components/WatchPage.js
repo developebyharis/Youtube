@@ -67,7 +67,7 @@ const WatchPage = () => {
     <div className="">
       <SideBarExpanded />
       <div
-        className={`min-h-[calc(100vh-4.62rem)] dark:bg-zinc-900 dark:text-white px-2 grid grid-cols-12 md:gap-x-8  md:px-12 2xl:px-24 gap-y-4 pt-0 ${
+        className={`min-h-[calc(100vh-4.62rem)] dark:bg-zinc-900 dark:text-white px-2 grid grid-cols-12 md:gap-x-8  md:px-12 2xl:px-24 gap-y-4 pt-4 ${
           isSideBarOpen && "h-[calc(100vh-4.62rem)] overflow-x-hidden"
         }`}
       >

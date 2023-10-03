@@ -8,18 +8,18 @@ import VideoSuggestions from "./VideoSuggestions";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBar } from "../utils/appSlice";
 import { useQuery } from "@tanstack/react-query";
-
+import "./watchPage.css"
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
 
   function showPopup() {
-    alert("Text has been copied, allow pop-ups and  paste it in a new tab opened to get the summary.");
+    alert(
+      "Text has been copied, allow pop-ups and  paste it in a new tab opened to get the summary."
+    );
   }
 
-
-
-  const handleSummaryButtonClick = async ()=>{
+  const handleSummaryButtonClick = async () => {
     const text = `Summarize the YouTube video in Points and in details\nTitle: ${videoDetails?.snippet?.title} by ${videoDetails?.snippet?.channelTitle}`;
 
     const copyToClipboard = async (str) => {
@@ -29,8 +29,8 @@ const WatchPage = () => {
     };
     await copyToClipboard(text);
     showPopup();
-      window.open("https://chat.openai.com/chat", "_blank");
-  }
+    window.open("https://chat.openai.com/chat", "_blank");
+  };
 
   const dispatch = useDispatch();
   const isSideBarOpen = useSelector((store) => store.app.isSideBarOpen);
@@ -50,7 +50,6 @@ const WatchPage = () => {
     const data = await response.json();
     return data.items[0];
   };
-  
 
   const { data: videoDetails, isLoading } = useQuery({
     queryKey: ["watch-page", "video-details", videoId],
@@ -73,9 +72,9 @@ const WatchPage = () => {
       >
         <div className="col1 col-span-12 lg:col-span-8  ">
           <div className="video mb-4 ">
-            <div className="player mb-4 h-[29vh] md:h-[50vh]  lg:h-[70vh] -mx-2 2xl:h-[70vh]">
+            <div class=" mb-4 h-[29vh] md:h-[50vh] lg:h-[70vh] -mx-2 2xl:h-[70vh]">
               <iframe
-              className="lg:rounded-xl"
+                class="lg:rounded-xl player-frame"
                 width="100%"
                 height="100%"
                 src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
@@ -84,6 +83,7 @@ const WatchPage = () => {
                 allowFullScreen
               ></iframe>
             </div>
+
             {isLoading ? (
               <div>loading....</div>
             ) : (
@@ -99,7 +99,7 @@ const WatchPage = () => {
               // onClick={makeFinalTranscriptText}
               onClick={handleSummaryButtonClick}
             >
-            Summarize
+              Summarize
             </button>
           </div>
           <Comments
@@ -108,7 +108,10 @@ const WatchPage = () => {
           />
         </div>
         <div className="col2 col-span-12 lg:col-span-4 ">
-          <VideoSuggestions videoId={videoId} videoTitle={videoDetails?.snippet?.title} />
+          <VideoSuggestions
+            videoId={videoId}
+            videoTitle={videoDetails?.snippet?.title}
+          />
         </div>
       </div>
     </div>

@@ -1,0 +1,17 @@
+
+  
+  .player-frame {
+    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    */animation: gradientShadow 10s infinite alternate;
+}
+  
+@keyframes gradientShadow {
+    0% {
+      box-shadow: 0 0 190px rgba(0, 0, 0, 0.26); /* Decreased spread size */
+    }
+    100% {
+      box-shadow: 0 0 190px rgba(255, 254, 246, 0.432); /* Decreased spread size */
+    }
+  }
+  
+  

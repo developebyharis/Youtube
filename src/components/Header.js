@@ -13,7 +13,7 @@ import { YOUTUBE_SEARCH_SUGGESTION_API_URL } from "../utils/constants";
 import SuggestionDropDown from "./SuggestionDropDown";
 import useClickOutside from "./../utils/useClickOutside";
 import { cacheResults } from "../utils/searchSlice";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 import ThemeContext from "../utils/ThemeContext";
 // import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { useVoice } from "../utils/useVoice";
@@ -191,46 +191,50 @@ const Header = () => {
           />
         )}
       </div>
-      <div className="right-menu flex  items-center sm:ml-4 lg:ml-16 gap-5 p-2">
-        <div className="toggle-dark-mode-switch  flex items-center gap-2">
-        <label
-  htmlFor="check"
-  className="bg-gray-100 dark:bg-zinc-700 relative p-3 rounded-full cursor-pointer flex"
->
-  {theme === "light" ? (
-    <>
-    <Icon icon="material-symbols:light-mode-outline" width="20" className="text-black" size="1.2rem" />
-      <input
-        type="checkbox"
-        id="check"
-        className="sr-only peer"
-        checked={theme === "dark"}
-        onChange={handleThemeChange}
-      />
-    </>
-  ) : (
-    <>
-    <Icon icon="material-symbols:dark-mode" width="20" className="text-white" />
-      <input
-        type="checkbox"
-        id="check"
-        className="sr-only peer"
-        checked={theme === "dark"}
-        onChange={handleThemeChange}
-      />
-    </>
-  )}
-</label>
-
+      <div className="right-menu flex  items-center sm:ml-4 lg:ml-16 max-sm:gap-0 gap-5 p-2">
+        <div className="toggle-dark-mode-switch  flex items-center gap-2 max-sm:hidden">
+          <label
+            htmlFor="check"
+            className="bg-gray-100 dark:bg-zinc-700 relative p-3 rounded-full cursor-pointer flex"
+          >
+            {theme === "light" ? (
+              <>
+                <Icon
+                  icon="material-symbols:light-mode-outline"
+                  width="20"
+                  className="text-black"
+                  size="1.2rem"
+                />
+                <input
+                  type="checkbox"
+                  id="check"
+                  className="sr-only peer"
+                  checked={theme === "dark"}
+                  onChange={handleThemeChange}
+                />
+              </>
+            ) : (
+              <>
+                <Icon
+                  icon="material-symbols:dark-mode"
+                  width="20"
+                  className="text-white"
+                />
+                <input
+                  type="checkbox"
+                  id="check"
+                  className="sr-only peer"
+                  checked={theme === "dark"}
+                  onChange={handleThemeChange}
+                />
+              </>
+            )}
+          </label>
         </div>
-
-        <div className="p-2 max-sm:hidden  hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">
-          <RiVideoAddLine size="1.5rem" />
-        </div>
-        <div className="p-2 max-sm:hidden  hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">
+        <div className="p-2  hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">
           <IoMdNotificationsOutline size="1.5rem" />
         </div>
-        <div className="p-2 max-sm:hidden   hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">
+        <div className="p-2 max-sm:-mr-4 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full cursor-pointer">
           <FaUserCircle size="1.5rem" />
         </div>
       </div>

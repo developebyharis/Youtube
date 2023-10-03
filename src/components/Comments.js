@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Comment from "./Comment";
 import { FaUserCircle } from "react-icons/fa";
 import loadingGif from "../assests/loading-state.gif";
-import { Icon } from "@iconify/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 const Comments = ({ videoId, commentCount }) => {

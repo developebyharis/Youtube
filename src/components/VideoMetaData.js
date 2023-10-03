@@ -79,8 +79,8 @@ const VideoMetaData = ({ videoDetails, channelId }) => {
               <button
                 className="bg-black dark:bg-white dark:text-black  text-sm text-white rounded-full  px-4 py-2 "
                 style={{
-                  "@media (max-width: 767px)": {
-                    marginLeft: "88px", // Reset marginLeft for screens with a width of 640px or less (adjust this breakpoint as needed)
+                  "@media screen and (max-width: 767px)": {
+                    marginLeft: "98px", // Reset marginLeft for screens with a width of 640px or less (adjust this breakpoint as needed)
                   },
                 }}
               >

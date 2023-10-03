@@ -47,6 +47,7 @@ const VideoContainer = () => {
           }&videoDuration=medium&key=` +
           process.env.REACT_APP_YOUTUBE_API_KEY
       );
+    console.log(response);
       const data = await response.json();
       return data;
     } catch (error) {

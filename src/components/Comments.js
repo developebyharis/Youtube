@@ -59,7 +59,7 @@ const Comments = ({ videoId, commentCount }) => {
           <span className="font-semibold text-sm">Sort by</span>
         </div>
       </div>
-      <div className="add_comment text-sm flex items-center  p-2 gap-4 my-8 dark:bg-zinc-700 bg-zinc-200 rounded-lg">
+      <div className="add_comment text-sm flex p-2 gap-4 my-8 dark:bg-zinc-700 bg-zinc-200 rounded-lg">
         <div className="user_pic">
           <FaUserCircle size="2.5rem" />
         </div>

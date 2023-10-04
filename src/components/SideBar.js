@@ -33,8 +33,8 @@ import { toggleMenu } from "../utils/appSlice";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
-    const currentYear = new Date().getFullYear();
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const currentYear = new Date().getFullYear();
 
   const breakpoint = 1024;
   const dispatch = useDispatch();
@@ -72,9 +72,8 @@ const SideBar = () => {
 
   return isMenuOpen ? (
     !isMobile() ? (
-      <div className="">
-<div className=" pb-12 fixed top-15 left-0 h-screen w-[15rem] overflow-y-auto bg-white dark:bg-zinc-900 dark:text-white transition-all duration-500">
-        <div className="first-part flex pl-2 pr-6 pb-4 flex-col text-sm w-[15rem] relative">
+      <div className="sidebar__open border-r dark:border-none flex  flex-col w-[15rem]  h-[calc(100vh-4.625rem)] overflow-y-scroll min-w-fit bg-white dark:bg-zinc-900 dark:text-white transition-all duration-500">
+        <div className="first-part flex pl-2 pr-6  pb-4 flex-col text-sm w-[15rem] ">
           <Link to="/">
             <div className="home px-4 flex py-2 items-center hover:bg-zinc-100 dark:hover:bg-zinc-700 w-full rounded-lg  cursor-pointer">
               <MdHomeFilled size="1.5rem" className="mb-1 mr-4" />
@@ -235,7 +234,6 @@ const SideBar = () => {
           <div className="px-4 py-2 text-gray-400"> &copy; {currentYear} Videon </div>
           <div className="px-4 py-2 text-gray-400"> Develope by <Link target="_blank" to="https://mhariskhan.vercel.app/">Haris Khan</Link>
         </div>
-        </div>
       </div>
       </div>
     ) : (
@@ -295,3 +293,5 @@ const SideBar = () => {
 };
 
 export default SideBar;
+          
+   

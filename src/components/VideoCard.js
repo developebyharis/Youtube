@@ -34,7 +34,7 @@ const VideoCard = ({ video }) => {
   const getVideoViewsAndDuration = async () => {
     const response = await fetch(
       BASE_URL +
-        `/videos?part=contentDetails%2Cstatistics&id=${_videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `/videos?part=contentDetails%2Cstatistics&id=${_videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY_3}`
     );
     const data = await response.json();
     return data.items[0];
@@ -72,7 +72,7 @@ const VideoCard = ({ video }) => {
   const get_channel_icon = async () => {
     const response = await fetch(
       BASE_URL +
-        `/channels?part=snippet&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `/channels?part=snippet&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY_4}`
     );
     const data = await response.json();
     return data?.items?.[0]?.snippet?.thumbnails?.default?.url;

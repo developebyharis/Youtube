@@ -29,7 +29,7 @@ const Tags = () => {
       } min-w-[250px]
       pt-1`}
     >
-      <div className="tags-wrapper flex w-full overflow-x-hidden overflow-y-hidden ">
+      <div className="tags-wrapper flex w-full overflow-x-hidden overflow-y-hidden md:ml-[15rem]">
         {tags.map((tag, index) => {
           return (
             <button

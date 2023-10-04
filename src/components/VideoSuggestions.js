@@ -8,7 +8,7 @@ const VideoSuggestions = ({ videoId, videoTitle }) => {
   const searchVideoByKeyword = async (searchText) => {
     const response = await fetch(
       BASE_URL +
-        `/search?part=snippet&maxResults=8&type=video&q=${searchText}&order=viewCount&videoDuration=medium&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `/search?part=snippet&maxResults=8&type=video&q=${searchText}&order=viewCount&videoDuration=medium&key=${process.env.REACT_APP_YOUTUBE_API_KEY_8}`
     );
     const data = await response.json();
     if (!response.ok) {
@@ -20,7 +20,7 @@ const VideoSuggestions = ({ videoId, videoTitle }) => {
   const getSuggestedVideos = async () => {
     const response = await fetch(
       BASE_URL +
-        `/search?part=snippet&relatedToVideoId=${videoId}&maxResults=15&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `/search?part=snippet&relatedToVideoId=${videoId}&maxResults=15&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY_9}`
     );
     const data = await response.json();
     if (!response.ok) {

@@ -45,7 +45,7 @@ const VideoContainer = () => {
           `/videos?part=snippet%2CcontentDetails%2Cstatistics&maxResults=8&chart=mostPopular&regionCode=IN&pageToken=${
             nextPageToken ?? ""
           }&videoDuration=medium&key=` +
-          process.env.REACT_APP_YOUTUBE_API_KEY
+          process.env.REACT_APP_YOUTUBE_API_KEY_5
       );
     console.log(response);
       const data = await response.json();
@@ -81,7 +81,7 @@ const VideoContainer = () => {
         BASE_URL +
           `/search?part=snippet&maxResults=8&type=video&q=${searchText}&pageToken=${
             nextPageToken ?? ""
-          }&videoDuration=medium&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+          }&videoDuration=medium&key=${process.env.REACT_APP_YOUTUBE_API_KEY_6}`
       );
       const data = await response.json();
       if (!response.ok) {
@@ -108,7 +108,7 @@ const VideoContainer = () => {
   ) : (
     <>
       <div
-        className=" grid justify-center justify-items-center grid-cols-[repeat(auto-fill,minmax(310px,_1fr))] max-xl:grid-cols-[repeat(auto-fill,minmax(250px,_1fr))] gap-[1rem_1rem] 
+        className=" md:ml-[15rem] grid justify-center justify-items-center grid-cols-[repeat(auto-fill,minmax(310px,_1fr))] max-xl:grid-cols-[repeat(auto-fill,minmax(250px,_1fr))] gap-[1rem_1rem] 
     pt-3 px-2 overflow-x-hidden"
       >
         {/* {console.log(data)} */}

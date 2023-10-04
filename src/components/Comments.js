@@ -18,7 +18,7 @@ const Comments = ({ videoId, commentCount }) => {
     const response = await fetch(
       BASE_URL +
         `/commentThreads?part=snippet%2Creplies&order=relevance&key=${
-          process.env.REACT_APP_YOUTUBE_API_KEY
+          process.env.REACT_APP_YOUTUBE_API_KEY_1
         }&videoId=${videoId}&textFormat=plainText&pageToken=${
           nextPageToken ?? ""
         }`

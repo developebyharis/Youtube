@@ -235,7 +235,7 @@ const Header = () => {
                 {/* Add more dropdown items as needed */}
               </div>
               <div className="border-t border-gray-200 dark:border-gray-400"></div>
-              <div className="toggle-dark-mode-switch px-3 mt-4 hover:bg-gray-100 dark:hover:bg-zinc-700 flex items-center gap-2 max-sm:hidden">
+              <div className="toggle-dark-mode-switch px-3 mt-4 hover:bg-gray-100 dark:hover:bg-zinc-700 flex items-center gap-2">
               <Icon icon="line-md:light-dark-loop" width="25" /><button
                   onClick={handleThemeChange}
                   className={` relative p-3 cursor-pointer flex ${

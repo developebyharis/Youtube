@@ -12,7 +12,7 @@ const VideoMetaData = ({ videoDetails, channelId }) => {
   const get_channel_details = async () => {
     const response = await fetch(
       BASE_URL +
-        `/channels?part=snippet%2Cstatistics%2CcontentDetails&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `/channels?part=snippet%2Cstatistics%2CcontentDetails&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY_7}`
     );
     const data = await response.json();
     return data.items[0];
